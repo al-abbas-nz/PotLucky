@@ -16,12 +16,17 @@
   padding: 10px;
 }
 
-.search-button {
+/* .search-button {
   background: lightcoral;
   border: none;
   padding: 10px 20px;
-  color: white;
-}
+  color: black;
+  display: flex;
+  justify-content: space-around;
+  border: 1px ridge green;
+  margin: 0 auto;
+  font-size: 1rem;
+} */
 
 .recipes {
   display: flex;
@@ -33,4 +38,29 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.search-button {
+  border: none;
+  box-shadow: 0px 10px 14px -7px #276873;
+  background: linear-gradient(to bottom, rgb(179, 89, 143) 5%, #994040 100%);
+  background-color: #b35959;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+  cursor: pointer;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 15px 15px;
+  text-shadow: 0px 1px 0px #3d768a;
+}
+.search-button:hover {
+  background: linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
+  background-color: #408c99;
+}
+.search-button:active {
+  position: relative;
+  top: 1px;
 }

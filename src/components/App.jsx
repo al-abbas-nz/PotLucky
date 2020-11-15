@@ -4,6 +4,19 @@ import Nav from './Nav'
 import Recipe from './Recipe'
 import '../App.css'
 
+import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper'
+
+import { Swiper, SwiperSlide } from 'swiper/react'
+
+// Import Swiper styles
+import 'swiper/swiper.scss'
+import 'swiper/components/navigation/navigation.scss'
+import 'swiper/components/pagination/pagination.scss'
+import 'swiper/components/scrollbar/scrollbar.scss'
+
+// install Swiper components
+SwiperCore.use([Navigation, Pagination, Scrollbar, A11y])
+
 const App = () => {
   //API details
 
@@ -43,26 +56,69 @@ const App = () => {
         <Nav />
       </div>
       <form onSubmit={getSearch} className='search-form'>
+        <button
+          className='search-button'
+          value='vegan breakfast'
+          onClick={updateSearch}
+        >
+          Breakfast
+        </button>
+        <button
+          className='search-button'
+          value='vegan lunch'
+          onClick={updateSearch}
+        >
+          Lunch
+        </button>
+        <button
+          className='search-button'
+          value='vegan dinner'
+          onClick={updateSearch}
+        >
+          Dinner
+        </button>
+        <button
+          className='search-button'
+          value='vegan dessert'
+          onClick={updateSearch}
+        >
+          Dessert
+        </button>
         <input
           className='search-bar'
-          type='text'
+          type='hidden'
           value={search}
           onChange={updateSearch}
+          display='hidden'
         />
-        <button className='search-button' type='submit'>
+        {/* <button className='search-button' type='hidden'>
           Search
-        </button>
+        </button> */}
       </form>
+
+      {/* recipes */}
       <div className='recipes'>
-        {recipes.map((recipe) => (
-          <Recipe
-            key={recipe.recipe.label}
-            title={recipe.recipe.label}
-            url={recipe.recipe.url}
-            image={recipe.recipe.image}
-            ingredients={recipe.recipe.ingredients}
-          />
-        ))}
+        <Swiper
+          spaceBetween={0}
+          slidesPerView={1}
+          navigation
+          pagination={{ clickable: true }}
+          scrollbar={{ draggable: true }}
+          // onSwiper={(swiper) => console.log(swiper)}
+          // onSlideChange={() => console.log('slide change')}
+        >
+          {recipes.map((recipe) => (
+            <SwiperSlide>
+              <Recipe
+                key={recipe.recipe.label}
+                title={recipe.recipe.label}
+                url={recipe.recipe.url}
+                image={recipe.recipe.image}
+                ingredients={recipe.recipe.ingredients}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
     </div>
   )
