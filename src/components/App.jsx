@@ -19,7 +19,8 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y])
 
 const App = () => {
   //API details
-
+  const APP_ID = '84cc3ca8'
+  const APP_KEY = '74cf5c57d29fcd88151fe84324c26e71'
   //Hooks
   const [recipes, setRecipes] = useState([])
   const [search, setSearch] = useState('')
